@@ -22,8 +22,6 @@ If you already cloned without `--recurse-submodules`:
 git submodule update --init --recursive
 ```
 
-Note: all three submodules are private — you'll need access to each to clone them.
-
 ## Working across repos
 
 Each subdirectory is a normal git checkout of its own repo, in detached HEAD by default. To make changes:
@@ -45,4 +43,4 @@ See each repo's own README for setup. Typical order: start `summarizr-model` (`m
 
 ## Deployment
 
-Local inference on CPU is slow (~15 minutes per summary), so `summarizr-api/terraform/` has an on-demand GPU deployment (single EC2 instance, Docker Compose, start/stop via `make aws-up`/`make aws-down`) — see that repo's README for setup. Not yet applied to real AWS infrastructure as of the last update to this README.
+Local inference on CPU is slow (~15 minutes per summary), so `summarizr-api/terraform/` has an on-demand GPU deployment (single EC2 instance, Docker Compose, start/stop via `make aws-up`/`make aws-down`) — see that repo's README for setup. Not yet applied to real AWS infrastructure.
