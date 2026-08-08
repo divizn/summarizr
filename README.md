@@ -5,8 +5,8 @@ Takes a YouTube video's transcript and summarizes it with AI.
 This is a superproject that pins together the three independent repos that make up the project:
 
 - [summarizr-model](https://github.com/divizn/summarizr-model) (private) — the ML side: transcript fetching, summarization, training data scraper, and fine-tuning notebooks
-- [summarizr-api](https://github.com/divizn/summarizr-api) (public) — Go API that fronts the model service over HTTP
-- [summarizr-webui](https://github.com/divizn/summarizr-webui) (public) — web UI, not started yet
+- [summarizr-api](https://github.com/divizn/summarizr-api) (private) — Go API that fronts the model service over HTTP
+- [summarizr-webui](https://github.com/divizn/summarizr-webui) (private) — web UI, not started yet
 
 Each is developed and versioned independently; this repo just tracks which commit of each is known to work together.
 
@@ -22,7 +22,7 @@ If you already cloned without `--recurse-submodules`:
 git submodule update --init --recursive
 ```
 
-Note: `summarizr-model` is private — you'll need access to clone it.
+Note: all three submodules are private — you'll need access to each to clone them.
 
 ## Working across repos
 
@@ -42,3 +42,7 @@ Bumping the pointer in `summarizr` is how this repo tracks "known-good" combinat
 ## Local dev
 
 See each repo's own README for setup. Typical order: start `summarizr-model` (`make model-serve`), then `summarizr-api` (`make api-run`), pointing `MODEL_API_URL` at the model service.
+
+## Deployment
+
+Local inference on CPU is slow (~15 minutes per summary), so `summarizr-api/terraform/` has an on-demand GPU deployment (single EC2 instance, Docker Compose, start/stop via `make aws-up`/`make aws-down`) — see that repo's README for setup. Not yet applied to real AWS infrastructure as of the last update to this README.
