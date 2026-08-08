@@ -1,0 +1,9 @@
+[submodule "summarizr-model"]
+	path = summarizr-model
+	url = https://github.com/divizn/summarizr-model.git
+[submodule "summarizr-api"]
+	path = summarizr-api
+	url = https://github.com/divizn/summarizr-api.git
+[submodule "summarizr-webui"]
+	path = summarizr-webui
+	url = https://github.com/divizn/summarizr-webui.git
